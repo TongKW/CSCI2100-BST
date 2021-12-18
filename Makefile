@@ -1,20 +1,14 @@
-CC := g++ 
+CC := g++
 SRCDIR := src
 BIN := bin
-${BUILD} := build
+BUILD := build
 
 all: main
 
-main: ${BIN}/bst.o ${BUILD}/main.o
-	${CC} -o main ${BUILD}/main.o ${BIN}/bst.o
-
-${BIN}/bst.o: ${SRCDIR}/bst.cpp 
-	${CC} -c -o ${BIN}/bst.o ${SRCDIR}/bst.cpp ${SRCDIR}/merge_sort.cpp
-
-${BUILD}/main.o: ${SRCDIR}/main.cpp
-	${CC} -c -o ${BUILD}/main.o ${SRCDIR}/main.cpp
+main: ${SRCDIR}/bst.cpp ${SRCDIR}/main.cpp ${SRCDIR}/merge_sort.cpp
+	${CC} -o main ${SRCDIR}/bst.cpp ${SRCDIR}/main.cpp ${SRCDIR}/merge_sort.cpp
 
 clean:
-	${RM} -r ${BUILD}/*
+	${RM} main
 
 .PHONY: clean

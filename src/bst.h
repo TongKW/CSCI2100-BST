@@ -1,5 +1,7 @@
 #ifndef BST_H
 #define BST_H
+#include <iostream>
+#include "merge_sort.h"
 
 struct Node {
     int key;
@@ -20,7 +22,8 @@ class BST
         Node *root;
         void BST_fill(Node*, int, int, int*);
     public:
-        int query(int);
+        int predecessor_query(int);
+        BST(int *arr, int length);
 };
 
 #endif

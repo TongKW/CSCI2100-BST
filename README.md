@@ -6,5 +6,5 @@ The output will be generated named "output.txt" in the output folder.
 ```bash
 make clean
 make
-./main
+time ./main
 ```
