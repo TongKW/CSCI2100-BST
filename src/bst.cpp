@@ -34,22 +34,17 @@ class BST
 BST::BST(int *arr, int length)
 {
     // make a copy of the input array
-    /*
     int arr_copy[length];
     for (int i = 0; i < length; i++)
     {
         arr_copy[i] = arr[i];
     }
-    */
+    
     // sort the copy array
-    cout << "hi3\n";
-    merge_sort(arr, 0, length - 1);
-    cout << "hi4\n";
+    merge_sort(arr_copy, 0, length - 1);
     root = new Node(0);
-    cout << "hi5\n";
     // fill the BST with values in arr_copy
-    BST_fill(root, 0, length - 1, arr);
-    cout << "hi6\n";
+    BST_fill(root, 0, length - 1, arr_copy);
 }
 
 // return the predecessor of the target
@@ -78,8 +73,6 @@ void BST::BST_fill(Node *current, int start, int end, int *arr)
     int middle_key = arr[middle_index];
     current -> key = middle_key;
 
-    cout << middle_index << endl;
-
     if (start <= middle_index - 1)
     {
         current -> left = new Node(0);
@@ -90,5 +83,4 @@ void BST::BST_fill(Node *current, int start, int end, int *arr)
         current -> right = new Node(0);
         BST_fill(current -> right, middle_index + 1, end, arr);
     }
-    
 }
